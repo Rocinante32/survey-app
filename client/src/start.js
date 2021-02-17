@@ -1,7 +1,5 @@
+import React from "react";
 import ReactDOM from "react-dom";
+import Index from "./index";
 
-ReactDOM.render(<HelloWorld />, document.querySelector("main"));
-
-function HelloWorld() {
-    return <div>Hello, World!</div>;
-}
+ReactDOM.render(<Index />, document.querySelector("main"));
