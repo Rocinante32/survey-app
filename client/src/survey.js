@@ -12,17 +12,19 @@ export default function Survey() {
             ...form,
             [e.target.name]: e.target.value,
         });
-        console.log(typeof form);
+        console.log(form);
     }
 
     function handleDelete(e) {
         console.log("you clicked delete: ", e);
-        let index = e.target.previousSibling.name;
-        let updatedQuestions = questions.filter(
-            (question) => question.id != index
-        );
-        console.log("questions after filter: ", updatedQuestions);
-        setQuestions(updatedQuestions);
+        let index = questions.length - 1;
+        // let updatedQuestions = questions.filter(
+        //     (question) => question.id != index
+        // );
+        // let updatedQuestions = questions[questions.length - 1].splice()
+        let newQuestions = questions.splice(0, questions.length - 1);
+        console.log("questions after filter: ", newQuestions);
+        setQuestions(newQuestions);
         console.log("questions after delete: ", questions);
         //set a function on all questions with evt listener so can target and remove
         let newform = delete form[index];
@@ -42,7 +44,7 @@ export default function Survey() {
         // console.log("title is: ", form);
     }, [form, questions]);
 
-    console.log("questions after delete 2: ", questions);
+    // console.log("questions after delete 2: ", questions);
 
     return (
         <div>
